@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.6.5
+Created-By: 24.80-b11 (Oracle Corporation)
+Main-Class: dip.gui.splash
+Class-Path: lib/HIGLayout.jar lib/JSX2.0.9.6.jar lib/batik-awt-util.ja
+ r lib/batik-bridge.jar lib/batik-css.jar lib/batik-dom.jar lib/batik-
+ ext.jar lib/batik-extension.jar lib/batik-gui-util.jar lib/batik-gvt.
+ jar lib/batik-parser.jar lib/batik-script.jar lib/batik-svg-dom.jar l
+ ib/batik-svggen.jar lib/batik-swing.jar lib/batik-transcoder.jar lib/
+ batik-util.jar lib/batik-xml.jar lib/jade.jar lib/jcmdline-1.0.1.jar 
+ lib/jhbasic.jar lib/jnlp.jar lib/l2fprod-common-directorychooser.jar 
+ lib/looks-1.3.1.jar lib/pdf-transcoder.jar lib/xerces_2_6_2.jar lib/x
+ ml-apis.jar
+
