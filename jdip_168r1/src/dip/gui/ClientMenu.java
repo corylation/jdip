@@ -78,6 +78,7 @@ public class ClientMenu
 	public static final Item FILE_IMPORT_FILE	= new Item("FILE_IMPORT_FILE");
 	public static final Item FILE_IMPORT_FLOC	= new Item("FILE_IMPORT_FLOC");
 	public static final Item FILE_EXPORT	= new Item("FILE_EXPORT");
+	public static final Item FILE_EXPORT_ALL = new Item("FILE_EXPORT_ALL");
 	public static final Item FILE_PRINT 	= new Item("FILE_PRINT");
 	public static final Item FILE_EXIT 		= new Item("FILE_EXIT");
 	
@@ -280,6 +281,7 @@ public class ClientMenu
 		subMenu.add(makeMenuItem(FILE_EXPORT_PDF, false));
 		subMenu.add(makeMenuItem(FILE_EXPORT_SVG, false));
 		menu.add(subMenu);								// 9
+		menu.add(makeMenuItem(FILE_EXPORT_ALL));
 		menu.add(new JSeparator());		
 		menu.add(makeMenuItem(FILE_PRINT));				// 11
 		menu.add(new JSeparator());						// 12

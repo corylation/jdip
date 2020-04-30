@@ -30,7 +30,9 @@ import dip.gui.dialog.prefs.GeneralPreferencePanel;
 import dip.misc.SimpleFileFilter;
 import dip.gui.swing.XJFileChooser;
 import dip.gui.ClientFrame;
+import dip.gui.PhaseSelector;
 import dip.misc.Utils;
+import dip.SequenceMuxer;
 
 import java.awt.Component;
 import java.awt.Color;
@@ -47,6 +49,8 @@ import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.apache.batik.transcoder.svg2svg.SVGTranscoder;
 import org.apache.batik.transcoder.image.ImageTranscoder;
 import org.apache.fop.svg.PDFTranscoder;
+
+import java.io.File;
 
 /**
 *
@@ -136,7 +140,75 @@ public class MapPanelSVGAction
 		
 	}// inner class Print
 	
-	
+	// CRJ: Export All Turns as PNG
+	public static class ExportPNGAll extends Export 
+	{
+		public ExportPNGAll(MapPanel mp)
+		{
+			super(mp, new PNGTranscoder(), SimpleFileFilter.PNG_FILTER);
+		}
+		
+		public void setOptions(Transcoder t)
+		{
+			super.setOptions(t);
+		}
+
+		public void actionPerformed(ActionEvent e){
+			final MapPanel mp = this.mp;
+
+			new Thread(getPMTG(mp), "jdipMP4ExportThread"){
+				public void run(){
+					try {
+						File file = getSaveFile(mp.getClientFrame(), SimpleFileFilter.MP4_FILTER);
+						if(file == null){
+							System.out.println("NULL SAVE FILE!");
+						}
+
+						// Get "turns" object
+						PhaseSelector p = mp.getClientFrame().getPhaseSelector();
+
+						// Go to first turn
+						p.first();
+
+						// Loop through turns
+						SequenceMuxer encoder = new SequenceMuxer(file);
+						for(int i = 0; i < p.getPhaseCount(); i++){
+							// Add to Encoder
+							
+							// Create the PNG
+							Transcoder transcoder = new PNGTranscoder();
+							transcoder.setErrorHandler(new TranscoderErrorHandler());
+							setOptions(transcoder);
+							final Document doc = mp.getSVGDocument();
+							final Document cloneDoc = (Document) doc.cloneNode(true);
+							TranscoderInput input = new TranscoderInput(cloneDoc);
+							File tmpFile = File.createTempFile("jdip_png_", ".png");
+							OutputStream ostream = new BufferedOutputStream(new FileOutputStream(tmpFile));
+							TranscoderOutput output = new TranscoderOutput(ostream);
+							transcoder.transcode(input, output);
+							ostream.flush();
+
+							// Add to the video
+							encoder.encodeImage(tmpFile);
+
+							System.out.println(tmpFile.toString());
+
+							// Delete tmp file
+							tmpFile.delete();
+
+							// Next Turn
+							p.next();
+						}
+
+						encoder.finish();
+					}
+					catch(Exception e){ 
+						ErrorDialog.displayGeneral(null, e);
+					}
+				}
+			}.start();
+		}
+	}
 	
 	/** Implements exporting as JPG */
 	public static class ExportJPG extends Export
@@ -270,7 +342,7 @@ public class MapPanelSVGAction
 	/** Implements basic exporting */
 	public static class Export implements ActionListener
 	{
-		private final MapPanel mp;
+		protected final MapPanel mp;
 		private final SimpleFileFilter simpleFileFilter;
 		private final Transcoder transcoder;
 		
@@ -385,4 +457,5 @@ public class MapPanelSVGAction
 	}// getPMTG()
 	
 	
+
 }// class MapSVGAction

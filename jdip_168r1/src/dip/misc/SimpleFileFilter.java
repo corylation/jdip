@@ -64,6 +64,8 @@ public class SimpleFileFilter extends FileFilter
 	public static final SimpleFileFilter HTML_FILTER = new SimpleFileFilter("html",
 			Utils.getLocalString("SimpleFileFilter.html.description") );
 	
+	public static final SimpleFileFilter MP4_FILTER = new SimpleFileFilter("mp4", "MP4 Video File");
+
 	/** TXT (plain text) file filter */
 	public static final SimpleFileFilter TXT_FILTER = new SimpleFileFilter("txt",
 			Utils.getLocalString("SimpleFileFilter.txt.description") );

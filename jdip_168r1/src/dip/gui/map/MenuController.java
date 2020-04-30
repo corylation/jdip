@@ -84,6 +84,10 @@ final class MenuController
 		removeActionListeners(mi);
 		mi.addActionListener(new MapPanelSVGAction.Print(mapPanel));
 		
+		mi = cm.getMenuItem(ClientMenu.FILE_EXPORT_ALL);
+		removeActionListeners(mi);
+		mi.addActionListener(new MapPanelSVGAction.ExportPNGAll(mapPanel));
+
 		mi = cm.getMenuItem(ClientMenu.FILE_EXPORT_JPG);
 		removeActionListeners(mi);
 		mi.addActionListener(new MapPanelSVGAction.ExportJPG(mapPanel));

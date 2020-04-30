@@ -322,7 +322,7 @@ public class WorldFactory
 			
 			Unit.Type unitType = initStates[i].getUnitType();
 			
-			// CRJ: FLAG
+			// CRJ: Add support for initial units without type (allows for marking starting non-SC's)
 			if(unitType == null){
 				// set 'lastOccupier' for unit and do nothing else
 				pos.setLastOccupier(province, power);

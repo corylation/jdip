@@ -171,8 +171,6 @@ public class Unit implements java.io.Serializable, Cloneable
 		public static final Unit.Type WING = new Unit.Type(NAME_WING);
 		/** Constant representing an unknown type */
 		public static final Unit.Type UNDEFINED = new Unit.Type(NAME_UNDEFINED);
-		/** CRJ: Constant representing a NONE type */
-		//public static final Unit.Type NONE = new Unit.Type(NAME_NONE);
 		
 		// instance variables
 		private final String internalName;
