@@ -477,7 +477,7 @@ public class ClientFrame extends JFrame
 	
 	
 	/** Get the user-specified Order Format Options (OFO) */
-	public synchronized OrderFormatOptions getOFO()
+	public OrderFormatOptions getOFO()
 	{
 		return orderFormatOptions;
 	}// getOFO()

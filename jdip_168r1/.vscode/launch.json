@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-ClientFrame<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.gui.ClientFrame",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PressDialog<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.gui.dialog.PressDialog",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-splash<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.gui.splash",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-AIDemo<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.misc.AIDemo",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-PropertyCheck<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.misc.PropertyCheck",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestParser<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.misc.TestParser",
+            "projectName": "jdip_168r1_fede362e"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-TestSuite<jdip_168r1_fede362e>",
+            "request": "launch",
+            "mainClass": "dip.misc.TestSuite",
+            "projectName": "jdip_168r1_fede362e"
+        }
+    ]
+}

@@ -761,7 +761,7 @@ public class DefaultMapRenderer2 extends MapRenderer2
 			
 			// hide layers we don't want (units, orders, sc)
 			SVGElement elLayer = (SVGElement) layerMap.get(LAYER_SC);
-			setElementVisibility(elLayer, false);
+			setElementVisibility(elLayer, true);
 			
 			elLayer = (SVGElement) layerMap.get(LAYER_UNITS);
 			setElementVisibility(elLayer, false);

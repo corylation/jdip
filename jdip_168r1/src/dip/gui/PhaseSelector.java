@@ -108,6 +108,10 @@ public class PhaseSelector
 		return currentPos;
 	}// getCurrentPhasePosition()
 	
+	public String getCurrentPhaseName()
+	{
+		return phases[currentPos].toString();
+	}
 	
 	private void setWorld(World newWorld)
 	{

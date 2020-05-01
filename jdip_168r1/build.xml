@@ -448,9 +448,21 @@
 			<classpath  refid="run.class.path"/>
 			<jvmarg  value="-ea"/>
 			<jvmarg  value="-Xss1024K"/>
+			<jvmarg  value="-g"/>
 		</java>
 	</target>
 	
+	<!-- debug; we must build first if required -->
+	<target name="debug" depends="build" description="Runs jDip (w/ debugger)">
+		<java classname="dip.gui.ClientFrame" fork="yes" dir="${build.dir}">
+			<classpath  refid="run.class.path"/>
+			<jvmarg  value="-ea"/>
+			<jvmarg  value="-Xss1024K"/>
+			<jvmarg  value="-Xrunjdwp:transport=dt_shmem,server=y,suspend=n,address=jdbconn"/>
+			<jvmarg  value="-Xdebug"/>
+		</java>
+	</target>
+
 	<!-- run from splash -->
 	<target name="runsplash" depends="build" description="Runs jDip w/splash">
 		<java classname="dip.gui.splash" fork="yes" dir="${build.dir}">
